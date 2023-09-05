@@ -9,17 +9,20 @@ puppeteer.use(StealthPlugin())
 puppeteer.launch( {
    headless: false, 
    executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe',
-   userDataDir: 'C:/Users/AlHe/AppData/Local/Google/Chrome/User Data/Default'
+   userDataDir: 'C:/Users/AlHe/AppData/Local/Google/Chrome/User Data/Default',
+   args: [
+    "--proxy-server=31.207.128.79:9876"
+   ]
    } ).then(async browser => {
   console.log('Running tests..')
   const page = await browser.newPage()
-  await page.goto('https://www.ozon.ru/brand/soul-way-100258413/')
+  await page.goto('https://www.ozon.ru/')
+  // await page.goto('https://www.ozon.ru/brand/soul-way-100258413/')
   await page.waitForTimeout(5000)
   await page.screenshot({ path: 'testresult2.png', fullPage: true })
 
   const grabParagraph = await page.evaluate( () => {
     const pgTag = document.querySelectorAll('.dl.l1d.d2l span');
-    let spanInnTextArr = [];
     let linksArr = [];
     pgTag.forEach((bonusSpan) => {
       if ( bonusSpan.innerText.includes('отзыв') ) {
@@ -32,13 +35,24 @@ puppeteer.launch( {
         //spanInnTextArr.push(p.innerText);
       }   
      });
-    //save data to txt file
-    fs.writeFile( 'bonusangebots.txt', 'linksArr');
+     
     return  linksArr;
 ;
   });
-
+  
   console.log(grabParagraph);
+
+  // const offers = [];
+  // await grabParagraph.forEach((element) => {
+  //   offers.push({'linkToProduct': element});
+  // });
+
+  // fs.writeFile( 'bonusoffers.json', JSON.stringify(offers, null, 2), (err) => {
+  // if (err) { throw err };
+  //  console.log('file saved');
+  // })
+  fs.writeFile( 'bonusangebots.txt',  grabParagraph.toString() ,() => {});
   //await browser.close()
-  console.log(`All done, check the screenshot. ✨`)
+  console.log(`All done`)
 })
+
