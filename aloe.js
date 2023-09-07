@@ -16,19 +16,16 @@ puppeteer.launch( {
    } ).then(async browser => {
   console.log('Running tests..')
   const page = await browser.newPage()
-  await page.goto('https://ozon.ru/')
-  //await page.goto('https://www.ozon.ru/brand/soul-way-100258413/')
+  await page.goto('https://aloeapteka.ru/')
   await page.waitForTimeout(5000)
   await page.screenshot({ path: 'testresult2.png', fullPage: true })
 
   const grabParagraph = await page.evaluate( () => {
     alert('here---');
-
-    const pgTag = document.querySelectorAll('.dl1.d3l.l3d.dx0 span');
-
+    const pgTag = Array.from(document.querySelectorAll('.main-nav a'));
     let hrefArr = []
-    Array.from(pgTag).forEach(element => { 
-      hrefArr.push(element.innerText);
+    pgTag.forEach(element => { 
+      hrefArr.push(element.getAttribute("href"))
     });
     // let linksArr = [];
     // pgTag.forEach((bonusSpan) => {
