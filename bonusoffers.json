@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "productTitle": "Протеин сывороточный со вкусом бисквита, 900 гр 30 порций",
+    "linkToProduct": "ozon.ru/product/protein-syvorotochnyy-so-vkusom-biskvita-900-gr-30-portsiy-1070109966/?_bctx=CAMQ7aTnLw&asb=84ocxXAXDnVWD8LVzSV3iRFAc6K4wNfVqdD9C%252BuY8A0%253D&asb2=bvq0F3yNRMIl6-vCOlrdMDBH221cPkAylhD5Qrlz5BPhDQk7JZIRQrq1h4N_G1T-&avtc=1&avte=2&avts=1694434129",
+    "productPrice": 1023,
+    "bonusValue": 200
+  },
+  {
+    "productTitle": "Протеин сывороточный со вкусом карамели, 900 гр 30 порций",
+    "linkToProduct": "ozon.ru/product/protein-syvorotochnyy-so-vkusom-karameli-900-gr-30-portsiy-1070109740/?_bctx=CAMQ7aTnLw&asb=QOx740cUJ1vvgxLjW9vdrwVuFnOiJ%252B7nm6CUtAYqkvU%253D&asb2=ethuSFPgb5EqhBhxSAiU9K2olVerneZranWP72DbZiHzrW2C9BBxkYK-N2HHAzD-&avtc=1&avte=2&avts=1694434129",
+    "productPrice": 1023,
+    "bonusValue": 200
+  },
+  {
+    "productTitle": "Протеин сывороточный со вкусом капучино, 900 гр 30 порций",
+    "linkToProduct": "ozon.ru/product/protein-syvorotochnyy-so-vkusom-kapuchino-900-gr-30-portsiy-1070108309/?_bctx=CAMQ7aTnLw&asb=TDHHR2ezt6MZjOn89X9EqO4bO5IDj8NQ6uJ%252Be0NbuVo%253D&asb2=WR204DEq_lqxB3gpC2NLp7JJkzlmUliPxuQfsSTng1hwdGrD-d-nwCPsdJQi3-Ol&avtc=1&avte=2&avts=1694434129",
+    "productPrice": 1023,
+    "bonusValue": 200
+  }
+]
