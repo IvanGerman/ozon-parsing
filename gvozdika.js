@@ -6,6 +6,7 @@ const StealthPlugin = require('puppeteer-extra-plugin-stealth')
 puppeteer.use(StealthPlugin())
 
 var dataFromAllPages = [];
+var isItLastPage = false;
 
 // puppeteer usage as normal
 puppeteer.launch( {
@@ -19,23 +20,32 @@ puppeteer.launch( {
   console.log('Running tests..');
   const page = await browser.newPage();
 
-  await page.goto('https://www.ozon.ru/category/spetsii-pripravy-i-pryanosti-9411/?category_was_predicted=true&deny_category_prediction=true&from_global=true&page=2&text=%D0%B3%D0%B2%D0%BE%D0%B7%D0%B4%D0%B8%D0%BA%D0%B0&tf_state=Mx19GwPK-iSp7g8cftElis8gMggopXqX5d5WddEP1Q3UWuQq', {
+  // await page.goto('https://www.ozon.ru/category/spetsii-pripravy-i-pryanosti-9411/?category_was_predicted=true&deny_category_prediction=true&from_global=true&page=2&text=%D0%B3%D0%B2%D0%BE%D0%B7%D0%B4%D0%B8%D0%BA%D0%B0&tf_state=Mx19GwPK-iSp7g8cftElis8gMggopXqX5d5WddEP1Q3UWuQq', {
+  //   waitUntil: 'load'
+  // });
+  await page.goto('https://www.ozon.ru/category/shurupy-i-samorezy-9802/?category_was_predicted=true&deny_category_prediction=true&from_global=true&text=%D1%81%D0%B0%D0%BC%D0%BE%D1%80%D0%B5%D0%B7%D1%8B+%D0%BF%D0%BE+%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%83', {
     waitUntil: 'load'
   });
-
+  
+  
   
 
 
 
 
-
-  for ( let i = 0; i < 3; i += 1) {
+  for ( let i = 0; i < 7; i += 1) {     
 
     await page.waitForTimeout(5000);
   //await page.screenshot({ path: 'testresult2.png', fullPage: true })
 
   const getDataFromPage = await page.evaluate( () => {
-    alert('here---');
+    //alert('here---');
+
+    isItLastPage = !document.querySelector('a.a2421-a4');
+    if ( isItLastPage ) {
+      alert('this is last page');
+    }
+
 
     const allBonusSpans = document.querySelectorAll('.it7 .l0d.dl3.ld3.dx0 span');
 
@@ -73,8 +83,17 @@ puppeteer.launch( {
 ;
   });
 
-  dataFromAllPages.push(getDataFromPage)
+  getDataFromPage.forEach((singleProduct) => {
+    dataFromAllPages.push(singleProduct);
+  });
+  
+
+  //here to fix
+  if ( isItLastPage ) { break };
+
   await page.click('a.a2421-a4');
+  
+  
 
   
   console.log(dataFromAllPages);
