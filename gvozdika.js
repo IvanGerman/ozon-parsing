@@ -6,7 +6,6 @@ const StealthPlugin = require('puppeteer-extra-plugin-stealth')
 puppeteer.use(StealthPlugin())
 
 var dataFromAllPages = [];
-var isItLastPage = false;
 
 // puppeteer usage as normal
 puppeteer.launch( {
@@ -23,7 +22,7 @@ puppeteer.launch( {
   // await page.goto('https://www.ozon.ru/category/spetsii-pripravy-i-pryanosti-9411/?category_was_predicted=true&deny_category_prediction=true&from_global=true&page=2&text=%D0%B3%D0%B2%D0%BE%D0%B7%D0%B4%D0%B8%D0%BA%D0%B0&tf_state=Mx19GwPK-iSp7g8cftElis8gMggopXqX5d5WddEP1Q3UWuQq', {
   //   waitUntil: 'load'
   // });
-  await page.goto('https://www.ozon.ru/category/shurupy-i-samorezy-9802/?category_was_predicted=true&deny_category_prediction=true&from_global=true&text=%D1%81%D0%B0%D0%BC%D0%BE%D1%80%D0%B5%D0%B7%D1%8B+%D0%BF%D0%BE+%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%83', {
+  await page.goto('https://www.ozon.ru/brand/soul-way-100258413/', {
     waitUntil: 'load'
   });
   
@@ -31,23 +30,18 @@ puppeteer.launch( {
   
 
 
+  //here to fix, no document in nodejs
+  let isItLastPage = !Boolean(page.querySelector('a.a2423-a4'));
 
-
-  for ( let i = 0; i < 7; i += 1) {     
+  while(!isItLastPage) {
 
     await page.waitForTimeout(5000);
   //await page.screenshot({ path: 'testresult2.png', fullPage: true })
 
   const getDataFromPage = await page.evaluate( () => {
-    //alert('here---');
+  
 
-    isItLastPage = !document.querySelector('a.a2421-a4');
-    if ( isItLastPage ) {
-      alert('this is last page');
-    }
-
-
-    const allBonusSpans = document.querySelectorAll('.it7 .l0d.dl3.ld3.dx0 span');
+    const allBonusSpans = document.querySelectorAll('.u3i .l0d.dl3.ld3.dx0 span');
 
     let hrefArr = [];
     let linksArr = [];
@@ -88,19 +82,93 @@ puppeteer.launch( {
   });
   
 
-  //here to fix
-  if ( isItLastPage ) { break };
-
-  await page.click('a.a2421-a4');
-  
-  
-
+  await page.click('a.a2423-a4');
   
   console.log(dataFromAllPages);
 
 
-
   }
+
+
+
+
+
+
+//   for ( let i = 0; i < 2; i += 1) {     
+
+//     await page.waitForTimeout(5000);
+//   //await page.screenshot({ path: 'testresult2.png', fullPage: true })
+
+//   const getDataFromPage = await page.evaluate( () => {
+//     //alert('here---');
+
+//     // isItLastPage = !Boolean(document.querySelector('a.a2423-a4'));
+//     // alert(isItLastPage);
+//     // let xx = isItLastPage;
+//     // if ( isItLastPage === true ) {
+//     //   alert('this is last page');
+      
+//     // }
+
+
+//     const allBonusSpans = document.querySelectorAll('.u3i .l0d.dl3.ld3.dx0 span');
+
+//     let hrefArr = [];
+//     let linksArr = [];
+//     let singleProductData = {};
+//     Array.from(allBonusSpans).forEach(bonusSpan => { 
+//       if ( bonusSpan.innerText.includes('отзыв') ) {
+//         hrefArr.push(bonusSpan.innerText);
+//         let linkParentOfItem = bonusSpan.closest('a');
+//         if (linkParentOfItem)  {
+
+//           let productTitle = linkParentOfItem.nextElementSibling.children[2].firstChild.firstChild.innerText;
+//           let productPrice = linkParentOfItem.nextElementSibling.firstChild.firstChild.firstChild.innerText;
+//           let bonusValue = bonusSpan.innerText;
+//           let linkToProduct = `ozon.ru${linkParentOfItem.getAttribute("href")}`;
+
+//           singleProductData.productTitle = productTitle;
+//           singleProductData.linkToProduct = linkToProduct;
+          
+//           productPrice = productPrice.replace(/\s+/g, '');
+//           let numberedProductPrice = productPrice.substring(0, productPrice.length-1);
+//           singleProductData.productPrice = Number(numberedProductPrice);
+
+//           singleProductData.bonusValue = Number(bonusValue.substring(0, bonusValue.indexOf(' ')));
+
+//           linksArr.push( {...singleProductData} );
+//         }
+//       }
+      
+//     });
+
+    
+//     return  linksArr;
+// ;
+//   });
+
+//   getDataFromPage.forEach((singleProduct) => {
+//     dataFromAllPages.push(singleProduct);
+//   });
+  
+
+//   //here to fix
+//   let isItLastPage  = !Boolean(document.querySelector('a.a2423-a4'))
+//   console.log('isItLastPage---' , isItLastPage)
+//   if ( isItLastPage === false ) { 
+//     console.log('vor click')
+//     await page.click('a.a2423-a4');
+//   };
+  
+  
+  
+
+  
+//   console.log(dataFromAllPages);
+
+
+
+//   }
 
   
 
