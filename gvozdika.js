@@ -1,3 +1,4 @@
+const { log } = require('console');
 const fs = require('fs');
 const puppeteer = require('puppeteer-extra')
 
@@ -31,17 +32,22 @@ puppeteer.launch( {
 
 
   //here to fix, no document in nodejs
-  let isItLastPage = !Boolean(page.querySelector('a.a2423-a4'));
 
-  while(!isItLastPage) {
 
+  
+  
+  let isItLastPage = false;
+  
+  while(isItLastPage !== true) {
+
+    
     await page.waitForTimeout(5000);
-  //await page.screenshot({ path: 'testresult2.png', fullPage: true })
-
+  
+    console.log('5000')
   const getDataFromPage = await page.evaluate( () => {
   
 
-    const allBonusSpans = document.querySelectorAll('.u3i .l0d.dl3.ld3.dx0 span');
+    const allBonusSpans = document.querySelectorAll('.ui5 .dl0.d2l.l2d.w9d span');
 
     let hrefArr = [];
     let linksArr = [];
@@ -74,7 +80,7 @@ puppeteer.launch( {
 
     
     return  linksArr;
-;
+
   });
 
   getDataFromPage.forEach((singleProduct) => {
@@ -86,96 +92,61 @@ puppeteer.launch( {
   
   console.log(dataFromAllPages);
 
+  //await page.waitForSelector('a.a2423-a4');
+  isItLastPage = (await page.$('a.a2423-a4')) === null;
+  console.log('isItLastPage---',isItLastPage);
 
+  if ( isItLastPage === true ) {
+    console.log('last page to get data');
+    await page.waitForTimeout(5000);
+  
+    console.log('5000')
+  const getDataFromPage = await page.evaluate( () => {
+  
+    alert('32323')
+    const allBonusSpans = document.querySelectorAll('.ui5 .dl0.d2l.l2d.w9d span');
+    console.log('allBonusSpans--',allBonusSpans);
+    let hrefArr = [];
+    let linksArr = [];
+    let singleProductData = {};
+    Array.from(allBonusSpans).forEach(bonusSpan => { 
+      if ( bonusSpan.innerText.includes('отзыв') ) {
+        hrefArr.push(bonusSpan.innerText);
+        let linkParentOfItem = bonusSpan.closest('a');
+        if (linkParentOfItem)  {
+
+          let productTitle = linkParentOfItem.nextElementSibling.children[2].firstChild.firstChild.innerText;
+          let productPrice = linkParentOfItem.nextElementSibling.firstChild.firstChild.firstChild.innerText;
+          let bonusValue = bonusSpan.innerText;
+          let linkToProduct = `ozon.ru${linkParentOfItem.getAttribute("href")}`;
+
+          singleProductData.productTitle = productTitle;
+          singleProductData.linkToProduct = linkToProduct;
+          
+          productPrice = productPrice.replace(/\s+/g, '');
+          let numberedProductPrice = productPrice.substring(0, productPrice.length-1);
+          singleProductData.productPrice = Number(numberedProductPrice);
+
+          singleProductData.bonusValue = Number(bonusValue.substring(0, bonusValue.indexOf(' ')));
+
+          linksArr.push( {...singleProductData} );
+        }
+      }
+      
+    });
+
+    
+    return  linksArr;
+
+  });
+
+  getDataFromPage.forEach((singleProduct) => {
+    dataFromAllPages.push(singleProduct);
+  });
   }
 
 
-
-
-
-
-//   for ( let i = 0; i < 2; i += 1) {     
-
-//     await page.waitForTimeout(5000);
-//   //await page.screenshot({ path: 'testresult2.png', fullPage: true })
-
-//   const getDataFromPage = await page.evaluate( () => {
-//     //alert('here---');
-
-//     // isItLastPage = !Boolean(document.querySelector('a.a2423-a4'));
-//     // alert(isItLastPage);
-//     // let xx = isItLastPage;
-//     // if ( isItLastPage === true ) {
-//     //   alert('this is last page');
-      
-//     // }
-
-
-//     const allBonusSpans = document.querySelectorAll('.u3i .l0d.dl3.ld3.dx0 span');
-
-//     let hrefArr = [];
-//     let linksArr = [];
-//     let singleProductData = {};
-//     Array.from(allBonusSpans).forEach(bonusSpan => { 
-//       if ( bonusSpan.innerText.includes('отзыв') ) {
-//         hrefArr.push(bonusSpan.innerText);
-//         let linkParentOfItem = bonusSpan.closest('a');
-//         if (linkParentOfItem)  {
-
-//           let productTitle = linkParentOfItem.nextElementSibling.children[2].firstChild.firstChild.innerText;
-//           let productPrice = linkParentOfItem.nextElementSibling.firstChild.firstChild.firstChild.innerText;
-//           let bonusValue = bonusSpan.innerText;
-//           let linkToProduct = `ozon.ru${linkParentOfItem.getAttribute("href")}`;
-
-//           singleProductData.productTitle = productTitle;
-//           singleProductData.linkToProduct = linkToProduct;
-          
-//           productPrice = productPrice.replace(/\s+/g, '');
-//           let numberedProductPrice = productPrice.substring(0, productPrice.length-1);
-//           singleProductData.productPrice = Number(numberedProductPrice);
-
-//           singleProductData.bonusValue = Number(bonusValue.substring(0, bonusValue.indexOf(' ')));
-
-//           linksArr.push( {...singleProductData} );
-//         }
-//       }
-      
-//     });
-
-    
-//     return  linksArr;
-// ;
-//   });
-
-//   getDataFromPage.forEach((singleProduct) => {
-//     dataFromAllPages.push(singleProduct);
-//   });
-  
-
-//   //here to fix
-//   let isItLastPage  = !Boolean(document.querySelector('a.a2423-a4'))
-//   console.log('isItLastPage---' , isItLastPage)
-//   if ( isItLastPage === false ) { 
-//     console.log('vor click')
-//     await page.click('a.a2423-a4');
-//   };
-  
-  
-  
-
-  
-//   console.log(dataFromAllPages);
-
-
-
-//   }
-
-  
-
-
-
-
-
+  }
 
 
 
