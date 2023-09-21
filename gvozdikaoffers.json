@@ -1,38 +1,14 @@
 [
   {
-    "productTitle": "Протеин сывороточный со вкусом бисквита, 900 гр 30 порций",
-    "linkToProduct": "ozon.ru/product/protein-syvorotochnyy-so-vkusom-biskvita-900-gr-30-portsiy-1070109966/?_bctx=CAMQ7aTnLw&asb=IcWjQ46%252Fqnx%252BQqgTb0%252F7NeZ7yx1KT1WPo0UblyfeSAc%253D&asb2=wephEQdlg5jaqw830-3NzTQGMyQ7I1nRItG5H2zjQ0y2gBJcADAYFkdxPPjCVQrl&avtc=1&avte=2&avts=1695120537",
-    "productPrice": 959,
-    "bonusValue": 200
+    "productTitle": "Средство для мытья посуды 5 литров QUALITA GREEN TEA & ALOE",
+    "linkToProduct": "ozon.ru/product/sredstvo-dlya-mytya-posudy-5-litrov-qualita-green-tea-aloe-1097161104/?asb=03gwlFrtNlZ5zoCzVQwtJ5CtkbQbmHePYau8UPxhKGo%253D&asb2=c1zUlPgx2AVU5km8ivHFFz9LdG-DL1blnBT8FGSFf6NvhOIEpcjgTxG_R8iY1Lt_&avtc=1&avte=2&avts=1695305056&keywords=%D0%A1%D1%80%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%BE+%D0%B4%D0%BB%D1%8F+%D0%BC%D1%8B%D1%82%D1%8C%D1%8F+%D0%BF%D0%BE%D1%81%D1%83%D0%B4%D1%8B",
+    "productPrice": 472,
+    "bonusValue": 250
   },
   {
-    "productTitle": "Протеин сывороточный со вкусом капучино, 900 гр 30 порций",
-    "linkToProduct": "ozon.ru/product/protein-syvorotochnyy-so-vkusom-kapuchino-900-gr-30-portsiy-1070108309/?_bctx=CAMQ7aTnLw&asb=kgFFu1FVvFEAqBy5KY60Wjjc2v5LdqAFnDr3DgLp5qA%253D&asb2=DvK4rKMSoABMdBM6Uz5-QkNq3RQVzq4x6CUvYWl_4X14HcfhWM7_PwMg-syb_wBT&avtc=1&avte=2&avts=1695120537",
-    "productPrice": 959,
-    "bonusValue": 200
-  },
-  {
-    "productTitle": "Протеин сывороточный со вкусом карамели, 900 гр 30 порций",
-    "linkToProduct": "ozon.ru/product/protein-syvorotochnyy-so-vkusom-karameli-900-gr-30-portsiy-1070109740/?_bctx=CAMQ7aTnLw&asb=EFLlcBcwCPUxCcwIdlHEerdlvX8i%252BAfvnWLL%252FBR0Cqc%253D&asb2=OwPFRC7GJjnDDMkhHFIc_mcj3k4BGTxKYVp1TXJKcxUp7U-Ula_zeBL-kkV-6RyF&avtc=1&avte=2&avts=1695120537",
-    "productPrice": 959,
-    "bonusValue": 200
-  },
-  {
-    "productTitle": "Протеин сывороточный со вкусом банана, 1020 гр 34 порций",
-    "linkToProduct": "ozon.ru/product/protein-syvorotochnyy-so-vkusom-banana-1020-gr-34-portsiy-1116123606/?_bctx=CAMQ7aTnLw&asb=EKb2DT5kxKU%252B8VmpKm28h8eldrScU13AY8x0OwRNe%252Fg%253D&asb2=UWJi4mqlYGAC8mwrGPCdgy3mQ5Xs7ylU-TupsFQZHWOl-ZilqlECDLaUB5hFjJKSe5evz6aWdBc4RZIpc4CTvHN_OSA3d5TlDOkErVv2ArWiDk8EWUnDCvm9bf9aUkvs7gtNjlqrsPK6_ZTgljo9RQ&avtc=1&avte=2&avts=1695120544",
-    "productPrice": 1049,
-    "bonusValue": 200
-  },
-  {
-    "productTitle": "Протеин сывороточный со вкусом шоколада, 1020 гр 34 порций",
-    "linkToProduct": "ozon.ru/product/protein-syvorotochnyy-so-vkusom-shokolada-1020-gr-34-portsiy-1116123160/?_bctx=CAMQ7aTnLw&asb=%252B6xx5zZdfSardftwT%252FU6pyhjzF8sHHULme3jZ7p%252B7gU%253D&asb2=b0KD8FW_xytDhSVdvlRCSA8zHx9xDOcgZRybNJF4hq-CR9LmIgSX77MLk4hN_WW-w6pXlwJ8BtmMVD_Ge_GQFRai1dI2sw_mf0Rckpgp0ZJwHEyg30ljOo78aD0ClXFgHH8_5GWxvJhpAMm_lxed7Q&avtc=1&avte=2&avts=1695120544",
-    "productPrice": 1049,
-    "bonusValue": 200
-  },
-  {
-    "productTitle": "Протеин сывороточный со вкусом клубники, 1020 гр 34 порций",
-    "linkToProduct": "ozon.ru/product/protein-syvorotochnyy-so-vkusom-klubniki-1020-gr-34-portsiy-1116335640/?_bctx=CAMQ7aTnLw&asb=CflGnEApotr9t%252F3eBJ4ipYRYmWwV1pPNBDN4ioYZj4UvBNHMCKFs7yoiysm4dtGE&asb2=Gg_zKdBEmt0qjF0ik03wPjSsxM-nfiSIGOgx9cJ8wHdTXZ4YrNbqcLWV6UkBZwHHAvlM0aZdc62nqbEv9nFAylyxlNCKiJO0R3e8733GXYGEKDqwZjdNASpxJTwCzGQxYcWUXM4qh4nm4DJybhNqvRDS-WEOjlCNdKmRrY4epwo&avtc=1&avte=2&avts=1695120544",
-    "productPrice": 1049,
-    "bonusValue": 200
+    "productTitle": "Synergy Моющее средство для мытья посуды, нейтральное. Ароматное яблоко 1 л",
+    "linkToProduct": "ozon.ru/product/synergy-moyushchee-sredstvo-dlya-mytya-posudy-neytralnoe-aromatnoe-yabloko-1-l-1096336332/?advert=6C3HP231RmB-ehfPUFoDWVTl6HIyXGRTKvgptzWiCkEaOZkUv23l61_pTAa__9uJ1fgRk7MKdzp1WmW0MUyNew1nhRF9c8o80zhoJ1IXgKEy0Gj888WcXI1clxWtKu_wboc-jWzo4FgFU44pOU3YOtsY7MxggfaOZlydwakDWwylV0BgXpVmpnib29-x7fHLXyTdQh9Cg-F-3tmsfk1DauDYY4twV5dpjjFdL3H_brqzgP3-eAJynAhgdzGr6jNR6I2t8ACh36hMm4veUqvvJaKk9UCsE5KBvnC9RBfjDJ-Y_oQSNf21-SDskDhQAwmzow8QHVB1iy9DyLzoy56X1vFV4k-K4d0&avtc=1&avte=2&avts=1695305062&keywords=%D0%A1%D1%80%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%BE+%D0%B4%D0%BB%D1%8F+%D0%BC%D1%8B%D1%82%D1%8C%D1%8F+%D0%BF%D0%BE%D1%81%D1%83%D0%B4%D1%8B",
+    "productPrice": 184,
+    "bonusValue": 150
   }
 ]
