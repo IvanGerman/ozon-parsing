@@ -19,12 +19,12 @@ puppeteer.launch({
   console.log('Running tests..');
   const page = await browser.newPage();
 
-  await page.goto('https://www.ozon.ru/category/bytovaya-himiya-36861/?category_was_predicted=true&deny_category_prediction=true&from_global=true&text=%D0%A1%D1%80%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%BE+%D0%B4%D0%BB%D1%8F+%D0%BC%D1%8B%D1%82%D1%8C%D1%8F+%D0%BF%D0%BE%D1%81%D1%83%D0%B4%D1%8B', {
-     waitUntil: 'load'
-   });
-  // await page.goto('https://www.ozon.ru/brand/soul-way-100258413/', {
-  //   waitUntil: 'load'
-  // });
+  // await page.goto('https://www.ozon.ru/category/shurupy-i-samorezy-9802/?category_was_predicted=true&deny_category_prediction=true&from_global=true&text=%D1%81%D0%B0%D0%BC%D0%BE%D1%80%D0%B5%D0%B7%D1%8B+%D0%BF%D0%BE+%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%83', {
+  //    waitUntil: 'load'
+  //  });
+  await page.goto('https://www.ozon.ru/brand/soul-way-100258413/', {
+    waitUntil: 'load'
+  });
 
 
   let isItLastPage = false;
@@ -35,7 +35,7 @@ puppeteer.launch({
 
     const getDataFromPage = await page.evaluate(() => {
 
-      const allBonusSpans = document.querySelectorAll('.iv8 .i2.j0.j2.ai0 span');
+      const allBonusSpans = document.querySelectorAll('.iv9 .i2.j0.j2.a0i span');
       console.log('allBonusSpans--', allBonusSpans);
       let hrefArr = [];
       let linksArr = [];
@@ -76,13 +76,23 @@ puppeteer.launch({
   while (isItLastPage !== true) {
 
     i += 1;
-    if (i === 8) { break }
+    console.log('iiiiiiiii---',i);
+    if (i === 10) { break }
 
     await page.waitForTimeout(5000);
     getDataMain();
 
     // to do - click only forward button
-    await page.click('a.a2423-a4');
+    const pageNavBtns = await page.$$('a.a2423-a4');
+    if ( pageNavBtns.length === 2 || pageNavBtns.length === 1) {
+      await pageNavBtns[0].click();
+    } else {
+      await pageNavBtns[1].click()
+    }
+    
+    console.log('pageNavBtns---',pageNavBtns[0]);
+    
+    //await page.click('a.a2423-a4');
     console.log(dataFromAllPages);
 
     try {
@@ -101,6 +111,7 @@ puppeteer.launch({
       console.log('last page to get data');
       await page.waitForTimeout(5000);
       getDataMain();
+      break;
     }
   }
 
